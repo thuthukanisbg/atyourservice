@@ -1,0 +1,172 @@
+{
+  "serviceCategories": [
+    {
+      "id": "cleaning",
+      "name": "Cleaning",
+      "iconKey": "mop",
+      "sort": 1,
+      "active": true
+    },
+    {
+      "id": "plumbing",
+      "name": "Plumbing",
+      "iconKey": "plumbing",
+      "sort": 2,
+      "active": true
+    },
+    {
+      "id": "electrical",
+      "name": "Electrical",
+      "iconKey": "bolt",
+      "sort": 3,
+      "active": true
+    },
+    {
+      "id": "handyman",
+      "name": "Handyman",
+      "iconKey": "build",
+      "sort": 4,
+      "active": true
+    },
+    {
+      "id": "appliances",
+      "name": "Appliances",
+      "iconKey": "kitchen",
+      "sort": 5,
+      "active": true
+    },
+    {
+      "id": "gardening",
+      "name": "Gardening",
+      "iconKey": "park",
+      "sort": 6,
+      "active": true
+    },
+    {
+      "id": "pest",
+      "name": "Pest Control",
+      "iconKey": "bug_report",
+      "sort": 7,
+      "active": true
+    }
+  ],
+  "services": [
+    {
+      "id": "deep_clean",
+      "categoryId": "cleaning",
+      "name": "Deep Cleaning",
+      "description": "Full home deep clean.",
+      "basePriceZar": 1200,
+      "unit": "fixed",
+      "active": true
+    },
+    {
+      "id": "hourly_clean",
+      "categoryId": "cleaning",
+      "name": "Hourly Cleaning",
+      "description": "General cleaning per hour.",
+      "basePriceZar": 180,
+      "unit": "hour",
+      "active": true
+    },
+    {
+      "id": "leak_repair",
+      "categoryId": "plumbing",
+      "name": "Leak Repair",
+      "description": "Fix leaking taps/pipes.",
+      "basePriceZar": 450,
+      "unit": "fixed",
+      "active": true
+    },
+    {
+      "id": "geyser_check",
+      "categoryId": "plumbing",
+      "name": "Geyser Check",
+      "description": "Inspect and service geyser.",
+      "basePriceZar": 650,
+      "unit": "fixed",
+      "active": true
+    },
+    {
+      "id": "socket_install",
+      "categoryId": "electrical",
+      "name": "Socket Installation",
+      "description": "Install/repair wall sockets.",
+      "basePriceZar": 400,
+      "unit": "fixed",
+      "active": true
+    },
+    {
+      "id": "light_fitting",
+      "categoryId": "electrical",
+      "name": "Light Fitting",
+      "description": "Install indoor light fittings.",
+      "basePriceZar": 350,
+      "unit": "fixed",
+      "active": true
+    },
+    {
+      "id": "furniture_assembly",
+      "categoryId": "handyman",
+      "name": "Furniture Assembly",
+      "description": "Assemble flat-pack furniture.",
+      "basePriceZar": 300,
+      "unit": "fixed",
+      "active": true
+    },
+    {
+      "id": "door_fix",
+      "categoryId": "handyman",
+      "name": "Door Fix",
+      "description": "Fix handles/hinges/locks.",
+      "basePriceZar": 250,
+      "unit": "fixed",
+      "active": true
+    },
+    {
+      "id": "washer_repair",
+      "categoryId": "appliances",
+      "name": "Washing Machine Repair",
+      "description": "Diagnose & fix washers.",
+      "basePriceZar": 550,
+      "unit": "fixed",
+      "active": true
+    },
+    {
+      "id": "lawn_mowing",
+      "categoryId": "gardening",
+      "name": "Lawn Mowing",
+      "description": "Cut and edge lawn areas.",
+      "basePriceZar": 250,
+      "unit": "fixed",
+      "active": true
+    },
+    {
+      "id": "hedge_trim",
+      "categoryId": "gardening",
+      "name": "Hedge Trimming",
+      "description": "Trim and shape hedges.",
+      "basePriceZar": 300,
+      "unit": "fixed",
+      "active": true
+    },
+    {
+      "id": "ant_treatment",
+      "categoryId": "pest",
+      "name": "Ant Treatment",
+      "description": "Household ant control.",
+      "basePriceZar": 450,
+      "unit": "fixed",
+      "active": true
+    },
+    {
+      "id": "roach_treatment",
+      "categoryId": "pest",
+      "name": "Cockroach Treatment",
+      "description": "Targeted roach control.",
+      "basePriceZar": 550,
+      "unit": "fixed",
+      "active": true
+    }
+  ]
+}

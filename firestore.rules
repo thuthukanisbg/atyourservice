@@ -1,0 +1,77 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() { return signedIn() && request.auth.token.admin == true; }
+    function isSelf(uid) { return signedIn() && request.auth.uid == uid; }
+
+    match /users/{uid} {
+      allow read: if isSelf(uid) || isAdmin();
+      allow create: if signedIn() && isSelf(uid);
+      allow update: if isSelf(uid) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /providers/{uid} {
+      allow read: if signedIn();
+      allow create: if isSelf(uid);
+      allow update: if isSelf(uid) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /serviceCategories/{catId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    match /services/{svcId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /requests/{rid} {
+      allow create: if signedIn();
+      allow read: if signedIn();
+      allow update: if isAdmin()
+        || (signedIn() && (
+            request.resource.data.clientId == request.auth.uid
+            || request.resource.data.providerId == request.auth.uid
+          ));
+      allow delete: if isAdmin();
+    }
+
+    match /chats/{rid} {
+      allow read, write: if signedIn();
+      match /messages/{mid} {
+        allow create, read: if signedIn();
+        allow update, delete: if false;
+      }
+    }
+
+    match /reviews/{id} {
+      allow read: if true;
+      allow create: if signedIn();
+      allow update, delete: if isAdmin();
+    }
+
+    match /payments/{id} {
+      allow read: if isAdmin();
+      allow create: if signedIn();
+      allow update, delete: if isAdmin();
+    }
+
+    match /payouts/{id} {
+      allow read: if isAdmin() || (signedIn() && resource.data.providerId == request.auth.uid);
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /promoCodes/{id} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /tickets/{id} {
+      allow read, create: if signedIn();
+      allow update, delete: if isAdmin() || (signedIn() && resource.data.openedBy == request.auth.uid);
+    }
+  }
+}

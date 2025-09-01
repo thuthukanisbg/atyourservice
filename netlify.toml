@@ -1,0 +1,9 @@
+[build]
+  publish = "web_build"         # optional: place your Flutter web export here
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  functionsPort = 9999
